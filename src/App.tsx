@@ -79,7 +79,7 @@ function App() {
                 <span className="block text-accent">ваш контроль — наше исполнение</span>
               </h1>
               <p className="text-light-gray text-lg md:text-xl mb-8 max-w-lg">
-                Возьмем на себя контроль качества, таможню и доставку. Ваше дело — только найти покупателя.
+                Работаем с частными подборщиками и малым бизнесом. Бесплатно для вас. На себя берем логистику, проверку качества и юридическую чистоту.
               </p>
               <a
                 href="https://t.me/your_telegram"
@@ -133,19 +133,19 @@ function App() {
       <section id="roadmap" className="bg-brutal-black text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold mb-4">Как мы работаем</h2>
-          <p className="text-light-gray text-lg mb-10">Шесть этапов. Одна фиксированная стоимость. Прозрачно.</p>
-          
+          {/* <p className="text-light-gray text-lg mb-10">Шесть этапов. Одна фиксированная стоимость.</p> */}
+
           <div className="relative">
             <div className="hidden md:block absolute top-10 left-0 w-full h-0.5 bg-mid-gray"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4 relative">
               {[
                 { step: 1, title: 'Запрос', desc: 'Вы даете модель и бюджет клиента. Мы бесплатно присылаем варианты.' },
                 { step: 2, title: 'Инвойс и депозит', desc: 'Вы выставляете инвойс клиенту. Депозит поступает продавцу в Китае.' },
-                { step: 3, title: 'Инспекция', desc: 'Наш представитель осматривает авто. 50+ фото и видеоотчет до оплаты.'},
+                { step: 3, title: 'Инспекция', desc: 'Наш представитель осматривает авто. Фото и видеоотчет до оплаты.' },
                 { step: 4, title: 'Логистика', desc: 'Морской фрахт или ЖД. Полное документальное сопровождение.' },
                 { step: 5, title: 'Растаможка', desc: 'Взаимодействие с брокером в РФ, оплата пошлин клиентом.' },
-                { step: 6, title: 'Выдача', desc: 'Финальный осмотр на СВХ. Передача авто вашему клиенту.'},
+                { step: 6, title: 'Выдача', desc: 'Финальный осмотр на СВХ. Передача авто вашему клиенту.' },
               ].map((item) => {
                 return (
                   <div key={item.step} className="bg-dark-gray border border-mid-gray p-5 relative z-10">
@@ -166,11 +166,14 @@ function App() {
       <section id="pricing" className="section-white py-16 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Сколько это стоит</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mt-8">
             <div className="border border-gray-300 p-8 bg-gray-50">
               <div className="text-accent text-sm font-bold tracking-wider mb-1">ЭТАП 1. КИТАЙ</div>
-              <div className="text-5xl font-bold mb-2 text-gray-900">10 000 ¥</div>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <p className="text-4xl font-bold text-gray-900">10 000 ¥</p>
+                <p className="text-3xl mb-2 text-gray-600">(≈ 111 960 ₽)</p>
+              </div>
               <p className="text-gray-600 mb-4">Платеж продавцу / площадке</p>
               <p className="text-sm border-t border-gray-300 pt-4 text-gray-700">
                 Фиксированная предоплата за автомобиль. Вносится клиентом напрямую или через нас на инвойс в Китае. Возвратна только при отказе продавца.
@@ -178,7 +181,12 @@ function App() {
             </div>
             <div className="border border-gray-300 p-8 bg-gray-50">
               <div className="text-accent text-sm font-bold tracking-wider mb-1">ЭТАП 2. РОССИЯ</div>
-              <div className="text-5xl font-bold mb-2 text-gray-900">40–50 тыс ₽</div>
+              <div className="flex items-baseline gap-1 flex-wrap">
+                <span className="text-4xl font-bold text-gray-900">40 000</span>
+                <span className="text-4xl text-gray-400 mx-1">—</span>
+                <span className="text-4xl font-bold text-gray-900">50 000</span>
+                <span className="text-4xl font-bold text-gray-900 ml-1">₽</span>
+              </div>
               <p className="text-gray-600 mb-4">Наше вознаграждение + Ваша надбавка</p>
               <p className="text-sm border-t border-gray-300 pt-4 text-gray-700">
                 Оплата наших услуг по проверке, логистике и оформлению. <span className="font-bold text-gray-900">Вы сами решаете, сколько добавить сверху для себя.</span>
@@ -187,14 +195,18 @@ function App() {
           </div>
 
           <div className="mt-6 bg-gray-50 border border-gray-300 p-6 text-sm text-gray-700">
-            <p className="font-bold text-gray-900 mb-2">Что входит в наши 40-50 тыс. ₽:</p>
+            <p className="font-bold text-gray-900 mb-2">Что входит в наши 40 000 — 50 000 ₽:</p>
             <ul className="list-disc pl-5 space-y-1">
               <li>Выездной осмотр авто в Китае (фото/видеоотчет)</li>
-              <li>Организация морской / ЖД перевозки</li>
+              <li>Организация перевозки</li>
               <li>Взаимодействие с таможенным брокером в РФ</li>
               <li>Контроль выдачи авто на СВХ</li>
             </ul>
-            <p className="mt-4"><span className="font-bold text-gray-900">Не входит:</span> Таможенные пошлины и утильсбор (оплачиваются отдельно клиентом по факту растаможки), ваша личная комиссия (назначаете сами).</p>
+            <p className="font-bold text-gray-900 mb-2 mt-6">Не входит:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Таможенные пошлины и утильсбор (оплачиваются отдельно клиентом по факту растаможки)</li>
+              <li>Ваша личная комиссия (назначаете сами)</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -203,21 +215,21 @@ function App() {
       <section id="examples" className="bg-brutal-black text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold mb-2">Реальные примеры заказов</h2>
-          <p className="text-light-gray mb-8">Это не склад. Это то, что мы уже привезли нашим партнерам за последние месяцы.</p>
-          
+          <p className="text-light-gray mb-8">Это не склад. Это то, что мы уже привезли нашим партнерам за последние 3 месяца</p>
+
           <div className="relative">
             <div className="overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-300 ease-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {carExamples.map((car) => (
                   <div key={car.id} className="w-full shrink-0 px-2">
                     <div className="border border-mid-gray bg-dark-gray">
-                      <img src={car.image} alt={car.name} className="w-full h-64 object-cover" />
+                      <img src={car.image} alt={car.name} className="w-full lg:h-100 h-64 object-cover" />
                       <div className="p-4">
                         <h3 className="text-xl font-bold">{car.name} {car.year}</h3>
-                        <p className="text-accent font-bold text-lg">от {car.price}</p>
+                        <p className="text-accent font-bold text-lg">{car.price}</p>
                         <p className="text-sm text-light-gray mt-2">Привезено под клиента в Москву</p>
                       </div>
                     </div>
@@ -225,15 +237,15 @@ function App() {
                 ))}
               </div>
             </div>
-            
-            <button 
+
+            <button
               onClick={prevSlide}
               className="absolute left-0 top-1/2 -translate-y-1/2 bg-brutal-black/80 border border-mid-gray p-2 hover:bg-accent hover:text-black transition-colors"
               aria-label="Предыдущий"
             >
               ←
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="absolute right-0 top-1/2 -translate-y-1/2 bg-brutal-black/80 border border-mid-gray p-2 hover:bg-accent hover:text-black transition-colors"
               aria-label="Следующий"
@@ -264,12 +276,12 @@ function App() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  <span><span className="font-bold">Прозрачность.</span> Вы получаете копии экспортных деклараций и коносамент.</span>
+                  <span><span className="font-bold">Прозрачность.</span> Вы получаете копии экспортных деклараций.</span>
                 </li>
               </ul>
               <div className="mt-8">
-                <a 
-                  href="/contract-example.pdf" 
+                <a
+                  href="/contract-example.pdf"
                   className="inline-block border border-accent text-accent hover:bg-accent hover:text-black font-bold py-3 px-6 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -290,15 +302,15 @@ function App() {
       <footer id="contacts" className="bg-brutal-black text-white py-12 border-t border-mid-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Обсудить заказ</h2>
-          <a 
-            href="https://t.me/your_telegram" 
+          <a
+            href="https://t.me/your_telegram"
             className="text-2xl font-mono border-b-2 border-accent pb-1 hover:text-accent transition-colors"
           >
             +7 (XXX) XXX-XX-XX
           </a>
           <p className="text-light-gray mt-4">Telegram / WhatsApp</p>
           <p className="text-light-gray mt-2">Денис, руководитель направления Китай</p>
-          
+
           <div className="mt-12 text-xs text-light-gray/50 border-t border-mid-gray pt-6">
             <p>ИП Ващенко Д.Батькович · ИНН 1234567890 · ОГРН 1234567890123</p>
             <p className="mt-2">© 2026 Все права защищены. Работаем по договору.</p>
