@@ -2,6 +2,7 @@
 
 @theme {
   --color-accent: oklch(70.7% 0.165 254.624);
+  --color-accent-hover: oklch(54.6% 0.245 262.881);
   --color-brutal-black: oklch(28.2% 0.091 267.935);
   --color-dark-gray: #1a1a1a;
   --color-mid-gray: #2d2d2d;

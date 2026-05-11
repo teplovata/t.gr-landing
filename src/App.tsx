@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import accentBg from './assets/bg-hero.jpg';
-import carHero from './assets/car-hero.png';
+import carHero from './assets/car-hero2.png';
 import stamp1 from './assets/stamp1.png';
 import stamp2 from './assets/stamp2.png';
 
@@ -74,9 +74,10 @@ function App() {
       <div className="h-16 md:h-20"></div>
 
       {/* 1. Hero  */}
-      <section id="hero" className="relative bg-cover bg-center bg-no-repeat py-16"
-        style={{ backgroundImage: `url(${accentBg})` }}>
-        <div className="absolute inset-0 bg-black/70"></div>
+      <section id="hero" className="relative bg-cover bg-center bg-no-repeat py-16 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[2px]"
+          style={{ backgroundImage: `url(${accentBg})` }}></div>
+        <div className="absolute inset-0 bg-black/70 "></div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20">
           <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
             <div>
@@ -89,16 +90,16 @@ function App() {
               </p>
               <a
                 href="https://t.me/your_telegram"
-                className="btn inline-block bg-accent hover:bg-orange-600 text-black font-bold py-3 px-8 transition-colors"
+                className="btn inline-block bg-accent hover:bg-accent-hover text-black font-bold py-3 px-8 transition-colors"
               >
                 Рассчитать стоимость
               </a>
             </div>
-            <div className="relative h-64 md:h-96">
+            <div className="relative h-full md:h-55">
               <img
                 src={carHero}
-                alt="Инспекция авто"
-                className="w-full h-full object-cover opacity-80"
+                alt="Авто"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -266,19 +267,19 @@ function App() {
                 </div>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-gray-700">
-                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                     <span>Контроль документов на всех этапах логистики</span>
                   </li>
                   <li className="flex items-start gap-2 text-gray-700">
-                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                     <span>Информирование о ходе логистики</span>
                   </li>
                   <li className="flex items-start gap-2 text-gray-700">
-                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                     <span>Организация и сопровождение таможенной очистки</span>
                   </li>
                   <li className="flex items-start gap-2 text-gray-700">
-                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                    <CheckIcon className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                     <span>Организация доставки в город клиента</span>
                   </li>
                 </ul>
@@ -424,7 +425,7 @@ function App() {
         </div>
       </section>
 
-      {/* 7. Контакты (чёрный фон) */}
+      {/* 7. Контакты  */}
       <footer id="contacts" className="bg-brutal-black text-white py-12 border-t border-mid-gray">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Обсудить заказ</h2>
@@ -437,7 +438,7 @@ function App() {
           <p className="text-light-gray mt-4">Telegram / WhatsApp</p>
           <p className="text-light-gray mt-2">Денис, руководитель направления Китай</p>
 
-          <div className="mt-12 text-xs text-light-gray/50 border-t border-mid-gray pt-6">
+          <div className="mt-12 text-xs text-light-gray/50 border-t border-accent pt-6">
             <p>ИП Ващенко Д.Батькович · ИНН 1234567890 · ОГРН 1234567890123</p>
             <p className="mt-2">© 2026 Все права защищены. Работаем по договору.</p>
           </div>
