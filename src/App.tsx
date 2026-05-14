@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-brutal-black/95 backdrop-blur-sm ">
+    <header className="fixed top-0 left-0 w-full z-50 bg-brutal-black backdrop-blur-sm ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <div className="text-xl font-bold tracking-tight">
           <span className="text-white">T.</span>
@@ -290,7 +290,7 @@ function App() {
       </section>
 
       {/* 5. Карусель авто (чёрный фон) */}
-      <section id="examples" className="bg-linear-to-r from-brutal-black via-accent to-white text-white py-16">
+      {/* <section id="examples" className="bg-linear-to-r from-brutal-black via-accent to-white text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold mb-2">Реальные примеры заказов</h2>
           <p className="text-white mb-8">Это не склад. Это то, что мы уже привезли нашим партнерам</p>
@@ -334,6 +334,63 @@ function App() {
           <p className="text-center text-sm text-light-gray mt-4">
             {currentSlide + 1} / {carExamples.length}
           </p>
+        </div>
+      </section> */}
+
+      {/* Отзывы */}
+      <section id="reviews" className="section-white py-16 bg-brutal-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl font-bold mb-10 text-white">Отзывы партнёров</h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Отзыв 1 */}
+            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+              <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                «Полгода работаем с ребятами. Раньше сам мотался в Китай, теперь просто передаю заявку и получаю готовый результат. Клиенты довольны скоростью, я — экономией времени.»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
+                  ДК
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Дмитрий К.</p>
+                  <p className="text-gray-500 text-xs">Частный партнёр, Москва</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Отзыв 2 */}
+            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+              <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                «Привёл клиента на Mazda CX-5 — сам бы я с китайскими дилерами не справился. Всё проверили, показали фотоотчёт до оплаты. Чувствуется, что люди знают своё дело.»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
+                  АС
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Алексей С.</p>
+                  <p className="text-gray-500 text-xs">Независимый специалист, Новосибирск</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Отзыв 3 */}
+            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+              <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                «Три машины за последние два месяца. Ни одной проблемы с документами, всё прозрачно. Работаем дальше.»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
+                  РМ
+                </div>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm">Руслан М.</p>
+                  <p className="text-gray-500 text-xs">Предприниматель, Казань</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
