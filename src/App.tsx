@@ -1,8 +1,9 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import accentBg from './assets/bg-hero.jpg';
-import carHero from './assets/car-hero2.png';
-import stamp1 from './assets/stamp1.png';
-import stamp2 from './assets/stamp2.png';
+import carHero from './assets/car-hero1.png';
+import document from './assets/doc.jpg'
+// import stamp1 from './assets/stamp1.png';
+// import stamp2 from './assets/stamp2.png';
 
 // Иконки
 const CheckIcon = ({ className = "w-5 h-5 text-accent" }: { className?: string }) => (
@@ -11,13 +12,23 @@ const CheckIcon = ({ className = "w-5 h-5 text-accent" }: { className?: string }
   </svg>
 );
 
+const StarIcon = ({ filled = true }: { filled?: boolean }) => (
+  <svg
+    className={`w-4 h-4 ${filled ? 'text-blue-600' : 'text-gray-300'}`}
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+  </svg>
+);
+
 // Данные карусели
-const carExamples = [
-  { id: 1, name: 'LiXiang L9', year: '2024', price: '6 850 000 ₽', image: 'https://images.unsplash.com/photo-1617624085910-b3f33b5b6b5d?w=600&auto=format&fit=crop' },
-  { id: 2, name: 'Zeekr 001', year: '2023', price: '5 200 000 ₽', image: 'https://images.unsplash.com/photo-1612544448445-b8232cff3b6c?w=600&auto=format&fit=crop' },
-  { id: 3, name: 'BYD Han', year: '2024', price: '4 950 000 ₽', image: 'https://images.unsplash.com/photo-1619767886558-efdc259b6e09?w=600&auto=format&fit=crop' },
-  { id: 4, name: 'Exeed RX', year: '2024', price: '4 600 000 ₽', image: 'https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?w=600&auto=format&fit=crop' },
-];
+// const carExamples = [
+//   { id: 1, name: 'LiXiang L9', year: '2024', price: '6 850 000 ₽', image: 'https://images.unsplash.com/photo-1617624085910-b3f33b5b6b5d?w=600&auto=format&fit=crop' },
+//   { id: 2, name: 'Zeekr 001', year: '2023', price: '5 200 000 ₽', image: 'https://images.unsplash.com/photo-1612544448445-b8232cff3b6c?w=600&auto=format&fit=crop' },
+//   { id: 3, name: 'BYD Han', year: '2024', price: '4 950 000 ₽', image: 'https://images.unsplash.com/photo-1619767886558-efdc259b6e09?w=600&auto=format&fit=crop' },
+//   { id: 4, name: 'Exeed RX', year: '2024', price: '4 600 000 ₽', image: 'https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?w=600&auto=format&fit=crop' },
+// ];
 
 // Компонент фиксированной шапки
 const Header = () => {
@@ -62,9 +73,9 @@ const Header = () => {
 };
 
 function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carExamples.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carExamples.length) % carExamples.length);
+  // const [currentSlide, setCurrentSlide] = useState(0);
+  // const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carExamples.length);
+  // const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carExamples.length) % carExamples.length);
 
   return (
     <div className="min-h-screen">
@@ -95,7 +106,7 @@ function App() {
                 Рассчитать стоимость
               </a>
             </div>
-            <div className="relative h-full md:h-55">
+            <div className="relative h-full md:h-65">
               <img
                 src={carHero}
                 alt="Авто"
@@ -341,16 +352,20 @@ function App() {
       <section id="reviews" className="section-white py-16 bg-brutal-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold mb-10 text-white">Отзывы партнёров</h2>
-
           <div className="grid md:grid-cols-3 gap-6">
             {/* Отзыв 1 */}
-            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <div className="flex flex-col border border-gray-200 rounded-xl p-6 bg-white">
+              <div className="flex gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} filled={i < 5} />
+                ))}
+              </div>
               <p className="text-gray-700 text-sm leading-relaxed mb-4">
                 «Полгода работаем с ребятами. Раньше сам мотался в Китай, теперь просто передаю заявку и получаю готовый результат. Клиенты довольны скоростью, я — экономией времени.»
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
-                  ДК
+              <div className="flex items-center gap-3 mt-auto">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-2xl">
+                  🦊
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">Дмитрий К.</p>
@@ -360,13 +375,19 @@ function App() {
             </div>
 
             {/* Отзыв 2 */}
-            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <div className="flex flex-col border border-gray-200 rounded-xl p-6 bg-white">
+              <div className="flex gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} filled={i < 5} />
+                ))}
+              </div>
               <p className="text-gray-700 text-sm leading-relaxed mb-4">
                 «Привёл клиента на Mazda CX-5 — сам бы я с китайскими дилерами не справился. Всё проверили, показали фотоотчёт до оплаты. Чувствуется, что люди знают своё дело.»
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
-                  АС
+              <div className="flex items-center gap-3 mt-auto">
+
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-2xl">
+                  🐯
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">Алексей С.</p>
@@ -376,13 +397,18 @@ function App() {
             </div>
 
             {/* Отзыв 3 */}
-            <div className="border border-gray-200 rounded-xl p-6 bg-white">
+            <div className="flex flex-col border border-gray-200 rounded-xl p-6 bg-white">
+              <div className="flex gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon key={i} filled={i < 5} />
+                ))}
+              </div>
               <p className="text-gray-700 text-sm leading-relaxed mb-4">
                 «Три машины за последние два месяца. Ни одной проблемы с документами, всё прозрачно. Работаем дальше.»
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-sm">
-                  РМ
+              <div className="flex items-center gap-3 mt-auto">
+                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold text-2xl">
+                  🦁
                 </div>
                 <div>
                   <p className="font-bold text-gray-900 text-sm">Руслан М.</p>
@@ -427,65 +453,103 @@ function App() {
               </div>
             </div>
 
-            {/* Правая колонка — хаотичные штампы */}
-            <div className="relative h-80 md:h-96 flex items-center justify-center">
-              {/* Центральная группа — самый крупный */}
-              <img
-                src={stamp1}
-                alt=""
-                className="absolute w-36 md:w-44 opacity-40 -rotate-12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
-              />
-              {/* Верхний левый — наезжает на центр */}
-              <img
-                src={stamp2}
-                alt=""
-                className="absolute w-32 md:w-40 opacity-35 rotate-6 top-4 left-2 pointer-events-none select-none"
-              />
-              {/* Верхний правый */}
-              <img
-                src={stamp1}
-                alt=""
-                className="absolute w-32 md:w-40 opacity-35 -rotate-12 top-2 right-2 pointer-events-none select-none"
-              />
-              {/* Нижний левый */}
-              <img
-                src={stamp2}
-                alt=""
-                className="absolute w-28 md:w-36 opacity-30 rotate-12 bottom-2 left-4 pointer-events-none select-none"
-              />
-              {/* Нижний правый */}
-              <img
-                src={stamp2}
-                alt=""
-                className="absolute w-28 md:w-36 opacity-30 -rotate-6 bottom-2 right-2 pointer-events-none select-none"
-              />
-              {/* Боковой левый */}
-              <img
-                src={stamp1}
-                alt=""
-                className="absolute w-24 md:w-32 opacity-25 -rotate-45 top-1/2 left-0 -translate-y-1/2 pointer-events-none select-none"
-              />
-              {/* Боковой правый */}
-              <img
-                src={stamp2}
-                alt=""
-                className="absolute w-24 md:w-32 opacity-25 rotate-45 top-1/3 right-0 pointer-events-none select-none"
-              />
-              {/* Мелкий, но яркий — поверх всех */}
-              <img
-                src={stamp2}
-                alt=""
-                className="absolute w-20 md:w-24 opacity-45 -rotate-12 top-1/3 left-1/4 pointer-events-none select-none"
-              />
+            {/* Правая колонка — реквизиты */}
+            <div className="border border-gray-200 rounded-xl p-6 bg-gray-50">
+              <h3 className="text-sm font-bold text-accent tracking-wider mb-4 uppercase">Реквизиты компании</h3>
+              <div className="space-y-1.5 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Наименование</span>
+                  <span className="font-medium text-gray-900">ИП Ващенко Денис Батькович</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">ИНН</span>
+                  <span className="font-medium text-gray-900">1234567890</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">КПП</span>
+                  <span className="font-medium text-gray-900">123456789</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">ОГРН</span>
+                  <span className="font-medium text-gray-900">1234567890123</span>
+                </div>
+                <div className="border-t border-gray-200 my-2"></div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Р/с</span>
+                  <span className="font-medium text-gray-900">40702810000000000000</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Банк</span>
+                  <span className="font-medium text-gray-900 text-right max-w-[180px]">ПАО «СБЕРБАНК»</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">БИК</span>
+                  <span className="font-medium text-gray-900">044525225</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Корр. счёт</span>
+                  <span className="font-medium text-gray-900">30101810400000000225</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Пример документов */}
+      <section id="docs-example" className="section-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Пример документов</h2>
+
+          <div className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 w-75%">
+            <img
+              src={document}
+              alt="Пример сертификата"
+              className="w-full h-auto"
+            />
+          </div>
+
+          <p className="text-sm text-gray-500 mt-3 text-center">
+            Все автомобили проходят полное таможенное оформление с выдачей необходимых документов
+          </p>
+        </div>
+      </section>
+
+
       {/* 7. Контакты  */}
       <footer id="contacts" className="bg-brutal-black text-white py-12 border-t border-mid-gray">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Обсудить заказ</h2>
+
+          {/* Соцсети */}
+          <div className="flex items-center justify-center gap-4 mb-6">
+            {/* Telegram */}
+            <a
+              href="https://t.me/your_telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-accent transition-colors flex items-center justify-center"
+              aria-label="Telegram"
+            >
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.119.098.152.228.168.331.016.122.036.314.02.486z" />
+              </svg>
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/7XXXXXXXXXX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-accent transition-colors flex items-center justify-center"
+              aria-label="WhatsApp"
+            >
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+          </div>
+
           <a
             href="https://t.me/your_telegram"
             className="text-2xl font-mono border-b-2 border-accent pb-1 hover:text-accent transition-colors"
